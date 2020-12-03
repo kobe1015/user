@@ -15,6 +15,7 @@ public class Address extends BaseEntity {
     private Long id;
     private String name;
     private String nickname;
+    private String zipCode;
     private String address;
     private String addressDetail;
     private String phoneNumber;

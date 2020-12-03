@@ -23,6 +23,7 @@ public class User extends BaseEntity {
     private String password;
     private LocalDateTime changedPasswordAt;
     private String name;
+    private String zipCode;
     private String address;
     private String addressDetail;
     private String phoneNumber;
