@@ -1,7 +1,39 @@
+
 # swagger-ui custom path
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
+
+---
+
+server:
+  datasource:
+    hikari:
+      user:
+        driver-class-name: org.h2.Driver
+        username: root
+        password: seulshine
+        jdbc-url: jdbc:h2:mem//localhost/~/tori_db
+        auto-commit: false
+        connection-test-query: SELECT 1
+        minimum-idle: 10
+        maximum-pool-size: 50
+        transaction-isolation: TRANSACTION_READ_UNCOMMITTED
+        pool-name: pool-seulshine
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    generate-ddl: true
+    show-sql: true
+  logging:
+    level:
+      org:
+        hibernate:
+          SQL: DEBUG
+          type:
+            descriptor:
+              sql:
+                BasicBinder: TRACE
 
 ---
 spring:
