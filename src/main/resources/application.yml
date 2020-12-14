@@ -6,34 +6,29 @@ springdoc:
 
 ---
 
-server:
+spring:
+  application:
+    name: user
   datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/tori_db?characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: seulshine
     hikari:
-      user:
-        driver-class-name: org.h2.Driver
-        username: root
-        password: seulshine
-        jdbc-url: jdbc:h2:mem//localhost/~/tori_db
-        auto-commit: false
-        connection-test-query: SELECT 1
-        minimum-idle: 10
-        maximum-pool-size: 50
-        transaction-isolation: TRANSACTION_READ_UNCOMMITTED
-        pool-name: pool-seulshine
+      connection-timeout: 20000
+      minimum-idle: 10
+      maximum-pool-size: 10
+      idle-timeout: 10000
+      max-lifetime: 1000
+      auto-commit: false
   jpa:
-    database: mysql
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    properties:
+      hibernate:
+        format_sql: false
     generate-ddl: true
-    show-sql: true
-  logging:
-    level:
-      org:
-        hibernate:
-          SQL: DEBUG
-          type:
-            descriptor:
-              sql:
-                BasicBinder: TRACE
+    show-sql: false
 
 ---
 spring:

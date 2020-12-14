@@ -1,4 +1,4 @@
-package com.toris.user.model.repository.seulshine;
+package com.toris.user.repository;
 
 import com.toris.user.model.entity.seulshine.User;
 import org.springframework.data.jpa.repository.JpaRepository;

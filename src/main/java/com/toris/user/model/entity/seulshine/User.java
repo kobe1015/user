@@ -1,7 +1,6 @@
 package com.toris.user.model.entity.seulshine;
 
 import com.toris.user.model.entity.BaseEntity;
-import com.toris.user.model.entity.kobe.Role;
 import com.toris.user.model.enums.JoinChannel;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
