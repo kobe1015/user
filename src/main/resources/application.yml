@@ -29,7 +29,17 @@ spring:
         format_sql: false
     generate-ddl: true
     show-sql: false
-
+  profiles:
+    active: local
+    include: console-logging
+  logging:
+    file:
+      path: /Users/seuls/tori/Logs
+      max-size: 500MB
+      max-history: 10
+    level:
+      root: info
+      com.toris.user.controller: debug
 ---
 spring:
   config:

@@ -33,6 +33,9 @@ dependencies {
     compile group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.5.0'
 
 
+    implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
+    implementation 'org.liquibase:liquibase-core'
+
 }
 
 test {
