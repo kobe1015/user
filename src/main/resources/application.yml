@@ -27,15 +27,18 @@ spring:
     properties:
       hibernate:
         format_sql: false
+        ddl-auto: create
     generate-ddl: true
     show-sql: false
   profiles:
     active: local
     include: console-logging
+  liquibase:
+    change-log: classpath:/db/changelog-master.xml
   logging:
     file:
       path: /Users/seuls/tori/Logs
-      max-size: 500MB
+      max-size: 100MB
       max-history: 10
     level:
       root: info

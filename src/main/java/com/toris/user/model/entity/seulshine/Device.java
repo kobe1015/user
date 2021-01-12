@@ -2,7 +2,6 @@ package com.toris.user.model.entity.seulshine;
 
 
 import com.toris.user.model.entity.BaseEntity;
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,9 +16,9 @@ import javax.persistence.*;
 public class Device extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long deviceNo;
-
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name = "device_id")
+    private Long id;
     private String name;
     private String os;
     private String appVersion;
