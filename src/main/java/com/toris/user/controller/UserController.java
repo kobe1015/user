@@ -1,8 +1,10 @@
 package com.toris.user.controller;
 
 import com.toris.user.model.dto.UserDto;
+import com.toris.user.model.entity.kobe.User;
 import com.toris.user.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +15,8 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/users")
 public class UserController {
-    private final UserService userService;
+    @Autowired
+    public UserService userService;
 
     @GetMapping
     public ResponseEntity<List<UserDto>> findAllUser() {
@@ -25,7 +28,6 @@ public class UserController {
     @GetMapping("/{userId}")
     public ResponseEntity<UserDto> findUserById(@PathVariable Long userId) {
         UserDto userDto = userService.findUserById(userId);
-
         return new ResponseEntity<>(userDto, HttpStatus.OK);
     }
 
@@ -37,8 +39,10 @@ public class UserController {
     }
 
     @PutMapping("/{userId}")
-    public ResponseEntity updateUser(@PathVariable Long userId,
-                                     @RequestBody UserDto userDto) {
+    public ResponseEntity updateUser(@PathVariable Long userId
+                                     ) {
+        UserDto userDto = new UserDto();
+        userDto.userId = userId;
         userService.updateUser(userId, userDto);
 
         return new ResponseEntity(HttpStatus.OK);
